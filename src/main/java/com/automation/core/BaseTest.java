@@ -1,7 +1,7 @@
-package com.automation.tests;
+package com.automation.core;
 
 import com.automation.config.ConfigReader;
-import com.automation.utils.DriverManager;
+import com.automation.config.EnvironmentConfig;
 import com.automation.utils.ExtentManager;
 import com.automation.utils.ScreenshotUtils;
 import com.aventstack.extentreports.ExtentTest;
@@ -44,7 +44,8 @@ public abstract class BaseTest {
         driver = DriverManager.initializeDriver(browser);
 
         // Navigate to base URL
-        String baseUrl = ConfigReader.getBaseUrl();
+        // String baseUrl = ConfigReader.getBaseUrl();
+        String baseUrl = EnvironmentConfig.getEnvironmentUrl();
         if (baseUrl != null && !baseUrl.isEmpty()) {
             driver.get(baseUrl);
             logger.info("Navigated to base URL: " + baseUrl);

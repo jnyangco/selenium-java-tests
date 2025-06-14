@@ -1,4 +1,4 @@
-package com.automation.utils;
+package com.automation.core;
 
 import com.automation.config.ConfigReader;
 import io.github.bonigarcia.wdm.WebDriverManager;

@@ -14,15 +14,19 @@
   <description>Selenium Java Test Automation Framework</description>
 
   <properties>
-    <maven.compiler.source>11</maven.compiler.source>
-    <maven.compiler.target>11</maven.compiler.target>
+    <!-- Updated to Java 17 LTS -->
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+    <!-- Dependency versions -->
     <selenium.version>4.15.0</selenium.version>
     <testng.version>7.8.0</testng.version>
     <extent.version>5.1.1</extent.version>
     <webdrivermanager.version>5.6.2</webdrivermanager.version>
     <log4j.version>2.21.1</log4j.version>
     <maven.surefire.version>3.2.2</maven.surefire.version>
+    <maven.compiler.version>3.11.0</maven.compiler.version>
   </properties>
 
   <dependencies>
@@ -83,12 +87,13 @@
 
   <build>
     <plugins>
+      <!-- Maven Compiler Plugin for Java 17 -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.11.0</version>
+        <version>${maven.compiler.version}</version>
         <configuration>
-          <release>11</release>
+          <release>17</release>
           <compilerArgs>
             <arg>-parameters</arg>
           </compilerArgs>
@@ -103,8 +108,49 @@
           <suiteXmlFiles>
             <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
           </suiteXmlFiles>
+          <!-- JVM arguments for Java 17 -->
+          <argLine>
+            --add-opens java.base/java.lang=ALL-UNNAMED
+            --add-opens java.base/java.util=ALL-UNNAMED
+            --add-opens java.base/java.text=ALL-UNNAMED
+            --add-opens java.desktop/java.awt.font=ALL-UNNAMED
+          </argLine>
+          <systemPropertyVariables>
+            <app>${app}</app>
+            <env>${env}</env>
+            <browser>${browser}</browser>
+          </systemPropertyVariables>
         </configuration>
       </plugin>
     </plugins>
   </build>
+
+  <!-- Profiles for different applications -->
+  <profiles>
+    <!-- SauceDemo Profile -->
+    <profile>
+      <id>saucedemo</id>
+      <properties>
+        <suite.file>src/test/resources/testsuites/saucedemo-suite.xml</suite.file>
+        <app>saucedemo</app>
+      </properties>
+    </profile>
+
+    <!-- OrangeHRM Profile -->
+    <profile>
+      <id>orangehrm</id>
+      <properties>
+        <suite.file>src/test/resources/testsuites/orangehrm-suite.xml</suite.file>
+        <app>orangehrm</app>
+      </properties>
+    </profile>
+
+    <!-- All Applications Profile -->
+    <profile>
+      <id>all-apps</id>
+      <properties>
+        <suite.file>src/test/resources/testsuites/all-apps-suite.xml</suite.file>
+      </properties>
+    </profile>
+  </profiles>
 </project>

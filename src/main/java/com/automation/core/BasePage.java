@@ -1,4 +1,4 @@
-package com.automation.pages;
+package com.automation.core;
 
 import com.automation.utils.WaitUtils;
 import org.apache.logging.log4j.LogManager;
@@ -10,6 +10,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.ElementNotInteractableException;
 
 import java.util.List;
 
@@ -179,7 +180,10 @@ public abstract class BasePage {
      */
     protected void typeText(WebElement element, String text) {
         try {
-            WaitUtils.waitForElementToBeVisible(driver, (By) element);
+            // WaitUtils.waitForElementToBeVisible(driver, (By) element);
+            if (!element.isDisplayed()) {
+                throw new ElementNotInteractableException("Element is not visible");
+            }
             element.clear();
             element.sendKeys(text);
             logger.info("Typed text '" + text + "' in element: " + element.toString());
@@ -213,7 +217,10 @@ public abstract class BasePage {
      */
     protected String getElementText(WebElement element) {
         try {
-            WaitUtils.waitForElementToBeVisible(driver, (By) element);
+            // WaitUtils.waitForElementToBeVisible(driver, (By) element);
+            if(element.isDisplayed()) {
+                throw new ElementNotInteractableException("Element is not visible");
+            }
             String text = element.getText();
             logger.info("Got text '" + text + "' from element: " + element.toString());
             return text;

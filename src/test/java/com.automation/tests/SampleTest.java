@@ -1,7 +1,7 @@
 package com.automation.tests;
 
+import com.automation.core.BaseTest;
 import com.automation.pages.SamplePage;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 /**

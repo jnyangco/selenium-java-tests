@@ -1,5 +1,6 @@
 package com.automation.utils;
 
+import com.automation.config.EnvironmentConfig;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.json.JSONArray;
@@ -208,8 +209,11 @@ public class JsonUtils {
      * Get base API URL
      * @return Base API URL string
      */
+//    public static String getApiBaseUrl() {
+//        return getApiEndpoints().getString("baseUrl");
+//    }
     public static String getApiBaseUrl() {
-        return getApiEndpoints().getString("baseUrl");
+        return EnvironmentConfig.getEnvironmentApiUrl();
     }
 
     /**
