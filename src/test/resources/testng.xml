@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="SeleniumTestSuite" verbose="1" parallel="none" thread-count="1">
+
+    <parameter name="browser" value="chrome"/>
+    <parameter name="environment" value="test"/>
+
+    <listeners>
+        <listener class-name="com.automation.listeners.TestListener"/>
+    </listeners>
+
+    <!-- Smoke Test Suite -->
+    <test name="SmokeTests" preserve-order="true">
+        <parameter name="testType" value="smoke"/>
+        <groups>
+            <run>
+                <include name="smoke"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.automation.tests.SampleTest">
+                <methods>
+                    <include name="testLoginPageElementsDisplayed"/>
+                    <include name="testSuccessfulLogin"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <!-- Regression Test Suite -->
+    <test name="RegressionTests" preserve-order="true">
+        <parameter name="testType" value="regression"/>
+        <groups>
+            <run>
+                <include name="regression"/>
+                <include name="smoke"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.automation.tests.SampleTest"/>
+        </classes>
+    </test>
+
+    <!-- Functional Test Suite -->
+    <test name="FunctionalTests" preserve-order="true">
+        <parameter name="testType" value="functional"/>
+        <groups>
+            <run>
+                <include name="functional"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.automation.tests.SampleTest">
+                <methods>
+                    <include name="testInvalidLogin"/>
+                    <include name="testEmptyFieldsLogin"/>
+                    <include name="testForgotPasswordLink"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <!-- UI Test Suite -->
+    <test name="UITests" preserve-order="true">
+        <parameter name="testType" value="ui"/>
+        <groups>
+            <run>
+                <include name="ui"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.automation.tests.SampleTest">
+                <methods>
+                    <include name="testPageInteractions"/>
+                    <include name="testPlaceholderText"/>
+                    <include name="testResponsiveDesign"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite>

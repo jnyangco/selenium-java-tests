@@ -1,0 +1,125 @@
+{
+  "users": {
+    "validUser": {
+      "username": "validuser@example.com",
+      "password": "ValidPassword123!",
+      "firstName": "John",
+      "lastName": "Doe",
+      "role": "user"
+    },
+    "adminUser": {
+      "username": "admin@example.com",
+      "password": "AdminPassword123!",
+      "firstName": "Admin",
+      "lastName": "User",
+      "role": "admin"
+    },
+    "invalidUser": {
+      "username": "invalid@example.com",
+      "password": "WrongPassword",
+      "firstName": "Invalid",
+      "lastName": "User",
+      "role": "user"
+    }
+  },
+  "testData": {
+    "loginPage": {
+      "pageTitle": "Login - Automation Test Site",
+      "headerText": "Welcome to Login Page",
+      "usernamePlaceholder": "Enter your email",
+      "passwordPlaceholder": "Enter your password",
+      "loginButtonText": "Sign In",
+      "forgotPasswordText": "Forgot Password?",
+      "signUpText": "Sign Up"
+    },
+    "validationMessages": {
+      "invalidCredentials": "Invalid username or password",
+      "emptyUsername": "Username is required",
+      "emptyPassword": "Password is required",
+      "invalidEmailFormat": "Please enter a valid email address",
+      "passwordTooShort": "Password must be at least 8 characters"
+    },
+    "urls": {
+      "loginPage": "/login",
+      "dashboard": "/dashboard",
+      "forgotPassword": "/forgot-password",
+      "signUp": "/signup",
+      "profile": "/profile"
+    }
+  },
+  "searchData": {
+    "validSearchTerms": [
+      "automation",
+      "testing",
+      "selenium",
+      "java"
+    ],
+    "invalidSearchTerms": [
+      "",
+      "   ",
+      "!@#$%^&*()",
+      "veryverylongsearchtermthatexceedsmaximumlength"
+    ]
+  },
+  "formData": {
+    "contactForm": {
+      "firstName": "John",
+      "lastName": "Doe",
+      "email": "john.doe@example.com",
+      "phone": "+1-555-123-4567",
+      "company": "Test Company",
+      "message": "This is a test message for automation testing purposes.",
+      "country": "United States",
+      "state": "California"
+    },
+    "registrationForm": {
+      "firstName": "Jane",
+      "lastName": "Smith",
+      "email": "jane.smith@example.com",
+      "phone": "+1-555-987-6543",
+      "dateOfBirth": "1990-05-15",
+      "gender": "Female",
+      "address": "123 Main Street",
+      "city": "San Francisco",
+      "zipCode": "94102"
+    }
+  },
+  "apiEndpoints": {
+    "baseUrl": "https://api.example.com",
+    "endpoints": {
+      "login": "/auth/login",
+      "users": "/users",
+      "products": "/products",
+      "orders": "/orders",
+      "reports": "/reports"
+    }
+  },
+  "browserSettings": {
+    "defaultTimeout": 30,
+    "pageLoadTimeout": 60,
+    "implicitWait": 10,
+    "resolutions": [
+      {"width": 1920, "height": 1080, "name": "Desktop HD"},
+      {"width": 1366, "height": 768, "name": "Desktop Standard"},
+      {"width": 768, "height": 1024, "name": "Tablet"},
+      {"width": 375, "height": 667, "name": "Mobile"}
+    ]
+  },
+  "testEnvironments": {
+    "development": {
+      "baseUrl": "https://dev.example.com",
+      "database": "test_dev_db",
+      "apiUrl": "https://api-dev.example.com"
+    },
+    "staging": {
+      "baseUrl": "https://staging.example.com",
+      "database": "test_staging_db",
+      "apiUrl": "https://api-staging.example.com"
+    },
+    "production": {
+      "baseUrl": "https://www.example.com",
+      "database": "prod_db",
+      "apiUrl": "https://api.example.com"
+    }
+  }
+}
