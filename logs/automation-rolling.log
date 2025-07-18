@@ -1,145 +1,30 @@
-2025-06-14 12:19:48.130 [main] INFO  com.automation.core.BaseTest - ==== Test Suite Started ====
-2025-06-14 12:19:48.132 [main] INFO  com.automation.config.ConfigReader - Configuration properties loaded successfully
-2025-06-14 12:19:48.184 [main] INFO  com.automation.utils.ExtentManager - ExtentReports initialized. Report will be generated at: test-output/reports/AutomationReport_2025-06-14_12-19-48.html
-2025-06-14 12:19:48.191 [main] INFO  com.automation.core.BaseTest - Setting up test: testLoginPageElementsDisplayed
-2025-06-14 12:19:50.377 [main] INFO  com.automation.core.DriverManager - WebDriver initialized successfully for browser: chrome
-2025-06-14 12:19:50.842 [main] INFO  com.automation.core.BaseTest - Navigated to base URL: https://example.com
-2025-06-14 12:19:50.845 [main] INFO  com.automation.core.BaseTest - Test setup completed for: testLoginPageElementsDisplayed
-2025-06-14 12:19:50.846 [main] INFO  com.automation.core.BaseTest - Starting test: Verify login page elements are displayed
-2025-06-14 12:20:00.905 [main] INFO  com.automation.core.BasePage - Page loaded completely
-2025-06-14 12:20:01.080 [main] INFO  com.automation.utils.ScreenshotUtils - Screenshot saved: test-output/screenshots/LoginPage_Loaded_2025-06-14_12-20-00.png
-2025-06-14 12:20:01.081 [main] INFO  com.automation.core.BaseTest - Screenshot captured: LoginPage_Loaded
-2025-06-14 12:20:11.140 [main] INFO  com.automation.core.BasePage - SamplePage: Username field displayed: false
-2025-06-14 12:20:11.149 [main] ERROR com.automation.core.BaseTest - Test FAILED: testLoginPageElementsDisplayed - Username field should be displayed expected [true] but found [false]
-2025-06-14 12:20:11.324 [main] INFO  com.automation.utils.ScreenshotUtils - Screenshot saved: test-output/screenshots/testLoginPageElementsDisplayed_FAILED_2025-06-14_12-20-11.png
-2025-06-14 12:20:11.409 [main] INFO  com.automation.core.DriverManager - WebDriver quit successfully
-2025-06-14 12:20:11.409 [main] INFO  com.automation.core.BaseTest - WebDriver quit successfully
-2025-06-14 12:20:11.409 [main] INFO  com.automation.core.BaseTest - Test teardown completed for: testLoginPageElementsDisplayed
-2025-06-14 12:20:11.411 [main] INFO  com.automation.core.BaseTest - Setting up test: testInvalidLogin
-2025-06-14 12:20:12.303 [main] INFO  com.automation.core.DriverManager - WebDriver initialized successfully for browser: chrome
-2025-06-14 12:20:12.708 [main] INFO  com.automation.core.BaseTest - Navigated to base URL: https://example.com
-2025-06-14 12:20:12.708 [main] INFO  com.automation.core.BaseTest - Test setup completed for: testInvalidLogin
-2025-06-14 12:20:12.709 [main] INFO  com.automation.core.BaseTest - Starting test: Test login with invalid credentials
-2025-06-14 12:20:22.747 [main] INFO  com.automation.core.BasePage - Page loaded completely
-2025-06-14 12:20:32.805 [main] ERROR com.automation.core.BasePage - Failed to type text in element: Proxy element for: DefaultElementLocator 'By.id: username'
-2025-06-14 12:20:32.808 [main] ERROR com.automation.core.BaseTest - Test FAILED: testInvalidLogin - class jdk.proxy2.$Proxy28 cannot be cast to class org.openqa.selenium.By (jdk.proxy2.$Proxy28 is in module jdk.proxy2 of loader 'app'; org.openqa.selenium.By is in unnamed module of loader 'app')
-2025-06-14 12:20:32.979 [main] INFO  com.automation.utils.ScreenshotUtils - Screenshot saved: test-output/screenshots/testInvalidLogin_FAILED_2025-06-14_12-20-32.png
-2025-06-14 12:20:33.064 [main] INFO  com.automation.core.DriverManager - WebDriver quit successfully
-2025-06-14 12:20:33.064 [main] INFO  com.automation.core.BaseTest - WebDriver quit successfully
-2025-06-14 12:20:33.064 [main] INFO  com.automation.core.BaseTest - Test teardown completed for: testInvalidLogin
-2025-06-14 12:20:33.065 [main] INFO  com.automation.core.BaseTest - Setting up test: testEmptyFieldsLogin
-2025-06-14 12:20:33.905 [main] INFO  com.automation.core.DriverManager - WebDriver initialized successfully for browser: chrome
-2025-06-14 12:20:34.283 [main] INFO  com.automation.core.BaseTest - Navigated to base URL: https://example.com
-2025-06-14 12:20:34.287 [main] INFO  com.automation.core.BaseTest - Test setup completed for: testEmptyFieldsLogin
-2025-06-14 12:20:34.288 [main] INFO  com.automation.core.BaseTest - Starting test: Test login with empty fields
-2025-06-14 12:20:44.306 [main] INFO  com.automation.core.BasePage - Page loaded completely
-2025-06-14 12:20:53.684 [main] INFO  com.automation.core.BaseTest - ==== Test Suite Started ====
-2025-06-14 12:20:53.686 [main] INFO  com.automation.config.ConfigReader - Configuration properties loaded successfully
-2025-06-14 12:20:53.743 [main] INFO  com.automation.utils.ExtentManager - ExtentReports initialized. Report will be generated at: test-output/reports/AutomationReport_2025-06-14_12-20-53.html
-2025-06-14 12:20:53.751 [main] INFO  com.automation.core.BaseTest - Setting up test: testLoginPageElementsDisplayed
-2025-06-14 12:20:54.932 [main] INFO  com.automation.core.DriverManager - WebDriver initialized successfully for browser: chrome
-2025-06-14 12:20:55.432 [main] INFO  com.automation.core.BaseTest - Navigated to base URL: https://example.com
-2025-06-14 12:20:55.434 [main] INFO  com.automation.core.BaseTest - Test setup completed for: testLoginPageElementsDisplayed
-2025-06-14 12:20:55.435 [main] INFO  com.automation.core.BaseTest - Starting test: Verify login page elements are displayed
-2025-06-14 12:21:05.457 [main] INFO  com.automation.core.BasePage - Page loaded completely
-2025-06-14 12:21:05.623 [main] INFO  com.automation.utils.ScreenshotUtils - Screenshot saved: test-output/screenshots/LoginPage_Loaded_2025-06-14_12-21-05.png
-2025-06-14 12:21:05.623 [main] INFO  com.automation.core.BaseTest - Screenshot captured: LoginPage_Loaded
-2025-06-14 12:21:15.628 [main] INFO  com.automation.core.BasePage - SamplePage: Username field displayed: false
-2025-06-14 12:21:15.638 [main] ERROR com.automation.core.BaseTest - Test FAILED: testLoginPageElementsDisplayed - Username field should be displayed expected [true] but found [false]
-2025-06-14 12:21:15.812 [main] INFO  com.automation.utils.ScreenshotUtils - Screenshot saved: test-output/screenshots/testLoginPageElementsDisplayed_FAILED_2025-06-14_12-21-15.png
-2025-06-14 12:21:15.901 [main] INFO  com.automation.core.DriverManager - WebDriver quit successfully
-2025-06-14 12:21:15.901 [main] INFO  com.automation.core.BaseTest - WebDriver quit successfully
-2025-06-14 12:21:15.901 [main] INFO  com.automation.core.BaseTest - Test teardown completed for: testLoginPageElementsDisplayed
-2025-06-14 12:21:16.002 [main] INFO  com.automation.utils.ExtentManager - ExtentReports flushed successfully
-2025-06-14 12:21:16.002 [main] INFO  com.automation.core.BaseTest - ==== Test Suite Completed ====
-2025-06-14 12:21:16.002 [main] INFO  com.automation.core.BaseTest - Test report generated at: test-output/reports/AutomationReport_2025-06-14_12-20-53.html
-2025-06-14 12:22:12.722 [main] INFO  com.automation.core.BaseTest - ==== Test Suite Started ====
-2025-06-14 12:22:12.723 [main] INFO  com.automation.config.ConfigReader - Configuration properties loaded successfully
-2025-06-14 12:22:12.770 [main] INFO  com.automation.utils.ExtentManager - ExtentReports initialized. Report will be generated at: test-output/reports/AutomationReport_2025-06-14_12-22-12.html
-2025-06-14 12:22:12.777 [main] INFO  com.automation.core.BaseTest - Setting up test: testResponsiveDesign
-2025-06-14 12:22:14.011 [main] INFO  com.automation.core.DriverManager - WebDriver initialized successfully for browser: chrome
-2025-06-14 12:22:14.409 [main] INFO  com.automation.core.BaseTest - Navigated to base URL: https://example.com
-2025-06-14 12:22:14.412 [main] INFO  com.automation.core.BaseTest - Test setup completed for: testResponsiveDesign
-2025-06-14 12:22:14.413 [main] INFO  com.automation.core.BaseTest - Starting test: Test responsive design elements
-2025-06-14 12:22:24.453 [main] INFO  com.automation.core.BasePage - Page loaded completely
-2025-06-14 12:22:24.611 [main] INFO  com.automation.utils.ScreenshotUtils - Screenshot saved: test-output/screenshots/Desktop_View_2025-06-14_12-22-24.png
-2025-06-14 12:22:24.612 [main] INFO  com.automation.core.BaseTest - Screenshot captured: Desktop_View
-2025-06-14 12:22:24.612 [main] INFO  com.automation.core.BaseTest - PASS: Responsive design test completed
-2025-06-14 12:22:24.612 [main] INFO  com.automation.core.BaseTest - Test completed: Responsive design test
-2025-06-14 12:22:24.613 [main] INFO  com.automation.core.BaseTest - Test PASSED: testResponsiveDesign
-2025-06-14 12:22:24.701 [main] INFO  com.automation.core.DriverManager - WebDriver quit successfully
-2025-06-14 12:22:24.701 [main] INFO  com.automation.core.BaseTest - WebDriver quit successfully
-2025-06-14 12:22:24.701 [main] INFO  com.automation.core.BaseTest - Test teardown completed for: testResponsiveDesign
-2025-06-14 12:22:24.798 [main] INFO  com.automation.utils.ExtentManager - ExtentReports flushed successfully
-2025-06-14 12:22:24.799 [main] INFO  com.automation.core.BaseTest - ==== Test Suite Completed ====
-2025-06-14 12:22:24.799 [main] INFO  com.automation.core.BaseTest - Test report generated at: test-output/reports/AutomationReport_2025-06-14_12-22-12.html
-2025-06-14 12:29:30.127 [main] INFO  com.automation.core.BaseTest - ==== Test Suite Started ====
-2025-06-14 12:29:30.128 [main] INFO  com.automation.config.ConfigReader - Configuration properties loaded successfully
-2025-06-14 12:29:30.180 [main] INFO  com.automation.utils.ExtentManager - ExtentReports initialized. Report will be generated at: test-output/reports/AutomationReport_2025-06-14_12-29-30.html
-2025-06-14 12:29:30.186 [main] INFO  com.automation.core.BaseTest - Setting up test: testResponsiveDesign
-2025-06-14 12:29:31.939 [main] INFO  com.automation.core.DriverManager - WebDriver initialized successfully for browser: chrome
-2025-06-14 12:29:32.404 [main] INFO  com.automation.core.BaseTest - Navigated to base URL: https://example.com
-2025-06-14 12:29:32.406 [main] INFO  com.automation.core.BaseTest - Test setup completed for: testResponsiveDesign
-2025-06-14 12:29:32.408 [main] INFO  com.automation.core.BaseTest - Starting test: Test responsive design elements
-2025-06-14 12:29:42.479 [main] INFO  com.automation.core.BasePage - Page loaded completely
-2025-06-14 12:29:42.656 [main] INFO  com.automation.utils.ScreenshotUtils - Screenshot saved: test-output/screenshots/Desktop_View_2025-06-14_12-29-42.png
-2025-06-14 12:29:42.657 [main] INFO  com.automation.core.BaseTest - Screenshot captured: Desktop_View
-2025-06-14 12:29:42.657 [main] INFO  com.automation.core.BaseTest - PASS: Responsive design test completed
-2025-06-14 12:29:42.657 [main] INFO  com.automation.core.BaseTest - Test completed: Responsive design test
-2025-06-14 12:29:42.658 [main] INFO  com.automation.core.BaseTest - Test PASSED: testResponsiveDesign
-2025-06-14 12:29:42.748 [main] INFO  com.automation.core.DriverManager - WebDriver quit successfully
-2025-06-14 12:29:42.749 [main] INFO  com.automation.core.BaseTest - WebDriver quit successfully
-2025-06-14 12:29:42.749 [main] INFO  com.automation.core.BaseTest - Test teardown completed for: testResponsiveDesign
-2025-06-14 12:29:42.843 [main] INFO  com.automation.utils.ExtentManager - ExtentReports flushed successfully
-2025-06-14 12:29:42.843 [main] INFO  com.automation.core.BaseTest - ==== Test Suite Completed ====
-2025-06-14 12:29:42.843 [main] INFO  com.automation.core.BaseTest - Test report generated at: test-output/reports/AutomationReport_2025-06-14_12-29-30.html
-2025-06-14 12:38:19.756 [main] INFO  com.automation.core.BaseTest - ==== Test Suite Started ====
-2025-06-14 12:38:19.757 [main] INFO  com.automation.config.ConfigReader - Configuration properties loaded successfully
-2025-06-14 12:38:19.811 [main] INFO  com.automation.utils.ExtentManager - ExtentReports initialized. Report will be generated at: test-output/reports/AutomationReport_2025-06-14_12-38-19.html
-2025-06-14 12:38:19.818 [main] INFO  com.automation.core.BaseTest - Setting up test: testResponsiveDesign
-2025-06-14 12:38:21.571 [main] INFO  com.automation.core.DriverManager - WebDriver initialized successfully for browser: chrome
-2025-06-14 12:38:21.818 [main] INFO  com.automation.core.BaseTest - Navigated to base URL: https://example.com
-2025-06-14 12:38:21.821 [main] INFO  com.automation.core.BaseTest - Test setup completed for: testResponsiveDesign
-2025-06-14 12:38:21.822 [main] INFO  com.automation.core.BaseTest - Starting test: Test responsive design elements
-2025-06-14 12:38:31.869 [main] INFO  com.automation.core.BasePage - Page loaded completely
-2025-06-14 12:38:32.042 [main] INFO  com.automation.utils.ScreenshotUtils - Screenshot saved: test-output/screenshots/Desktop_View_2025-06-14_12-38-31.png
-2025-06-14 12:38:32.043 [main] INFO  com.automation.core.BaseTest - Screenshot captured: Desktop_View
-2025-06-14 12:38:32.043 [main] INFO  com.automation.core.BaseTest - PASS: Responsive design test completed
-2025-06-14 12:38:32.043 [main] INFO  com.automation.core.BaseTest - Test completed: Responsive design test
-2025-06-14 12:38:32.044 [main] INFO  com.automation.core.BaseTest - Test PASSED: testResponsiveDesign
-2025-06-14 12:38:32.132 [main] INFO  com.automation.core.DriverManager - WebDriver quit successfully
-2025-06-14 12:38:32.132 [main] INFO  com.automation.core.BaseTest - WebDriver quit successfully
-2025-06-14 12:38:32.132 [main] INFO  com.automation.core.BaseTest - Test teardown completed for: testResponsiveDesign
-2025-06-14 12:38:32.236 [main] INFO  com.automation.utils.ExtentManager - ExtentReports flushed successfully
-2025-06-14 12:38:32.236 [main] INFO  com.automation.core.BaseTest - ==== Test Suite Completed ====
-2025-06-14 12:38:32.236 [main] INFO  com.automation.core.BaseTest - Test report generated at: test-output/reports/AutomationReport_2025-06-14_12-38-19.html
-2025-06-14 19:12:40.652 [main] INFO  com.automation.listeners.TestListener - Test Started: testResponsiveDesign
-2025-06-14 19:12:40.653 [main] INFO  com.automation.core.BaseTest - Starting test: Test responsive design elements
-2025-06-14 19:12:40.655 [main] ERROR com.automation.listeners.TestListener - Test Failed: testResponsiveDesign - Driver must be set
-2025-06-14 19:13:35.387 [main] INFO  com.automation.core.BaseTest - ==== Test Suite Started ====
-2025-06-14 19:13:35.388 [main] INFO  com.automation.config.ConfigReader - Configuration properties loaded successfully
-2025-06-14 19:13:35.441 [main] INFO  com.automation.utils.ExtentManager - ExtentReports initialized. Report will be generated at: test-output/reports/AutomationReport_2025-06-14_19-13-35.html
-2025-06-14 19:13:35.449 [main] INFO  com.automation.core.BaseTest - Setting up test: testResponsiveDesign
-2025-06-14 19:13:37.014 [main] INFO  com.automation.core.DriverManager - WebDriver initialized successfully for browser: chrome
-2025-06-14 19:13:37.015 [main] INFO  com.automation.config.EnvironmentConfig - Using environment:  with URL: https://example.com
-2025-06-14 19:13:37.469 [main] INFO  com.automation.core.BaseTest - Navigated to base URL: https://example.com
-2025-06-14 19:13:37.471 [main] INFO  com.automation.core.BaseTest - Test setup completed for: testResponsiveDesign
-2025-06-14 19:13:37.472 [main] INFO  com.automation.core.BaseTest - Starting test: Test responsive design elements
-2025-06-14 19:13:47.535 [main] INFO  com.automation.core.BasePage - Page loaded completely
-2025-06-14 19:13:47.695 [main] INFO  com.automation.utils.ScreenshotUtils - Screenshot saved: test-output/screenshots/Desktop_View_2025-06-14_19-13-47.png
-2025-06-14 19:13:47.696 [main] INFO  com.automation.core.BaseTest - Screenshot captured: Desktop_View
-2025-06-14 19:13:47.696 [main] INFO  com.automation.core.BaseTest - PASS: Responsive design test completed
-2025-06-14 19:13:47.696 [main] INFO  com.automation.core.BaseTest - Test completed: Responsive design test
-2025-06-14 19:13:47.697 [main] INFO  com.automation.core.BaseTest - Test PASSED: testResponsiveDesign
-2025-06-14 19:13:47.783 [main] INFO  com.automation.core.DriverManager - WebDriver quit successfully
-2025-06-14 19:13:47.783 [main] INFO  com.automation.core.BaseTest - WebDriver quit successfully
-2025-06-14 19:13:47.783 [main] INFO  com.automation.core.BaseTest - Test teardown completed for: testResponsiveDesign
-2025-06-14 19:13:47.891 [main] INFO  com.automation.utils.ExtentManager - ExtentReports flushed successfully
-2025-06-14 19:13:47.891 [main] INFO  com.automation.core.BaseTest - ==== Test Suite Completed ====
-2025-06-14 19:13:47.891 [main] INFO  com.automation.core.BaseTest - Test report generated at: test-output/reports/AutomationReport_2025-06-14_19-13-35.html
-2025-06-14 19:14:26.126 [main] INFO  com.automation.listeners.TestListener - Test Started: testResponsiveDesign
-2025-06-14 19:14:26.128 [main] INFO  com.automation.core.BaseTest - Starting test: Test responsive design elements
-2025-06-14 19:14:26.129 [main] ERROR com.automation.listeners.TestListener - Test Failed: testResponsiveDesign - Driver must be set
-2025-06-14 19:15:19.886 [main] INFO  com.automation.listeners.TestListener - Test Started: testResponsiveDesign
-2025-06-14 19:15:19.888 [main] INFO  com.automation.core.BaseTest - Starting test: Test responsive design elements
-2025-06-14 19:15:19.890 [main] ERROR com.automation.listeners.TestListener - Test Failed: testResponsiveDesign - Driver must be set
+2025-07-16 20:41:10.949 [main] INFO  com.automation.core.BaseTest - ==== Test Suite Started ====
+2025-07-16 20:41:10.952 [main] INFO  com.automation.config.ConfigReader - Configuration properties loaded successfully
+2025-07-16 20:41:11.005 [main] INFO  com.automation.utils.ExtentManager - ExtentReports initialized. Report will be generated at: test-output/reports/AutomationReport_2025-07-16_20-41-10.html
+2025-07-16 20:41:11.012 [main] INFO  com.automation.core.BaseTest - Setting up test: testResponsiveDesign
+2025-07-16 20:41:15.048 [main] INFO  com.automation.core.DriverManager - WebDriver initialized successfully for browser: chrome
+2025-07-16 20:41:15.049 [main] INFO  com.automation.config.EnvironmentConfig - Using environment:  with URL: https://example.com
+2025-07-16 20:41:15.584 [main] INFO  com.automation.core.BaseTest - Navigated to base URL: https://example.com
+2025-07-16 20:41:15.587 [main] INFO  com.automation.core.BaseTest - Test setup completed for: testResponsiveDesign
+2025-07-16 20:41:15.588 [main] INFO  com.automation.core.BaseTest - Starting test: Test responsive design elements
+2025-07-16 20:41:25.631 [main] INFO  com.automation.core.BasePage - Page loaded completely
+2025-07-16 20:41:25.805 [main] INFO  com.automation.utils.ScreenshotUtils - Screenshot saved: test-output/screenshots/Desktop_View_2025-07-16_20-41-25.png
+2025-07-16 20:41:25.806 [main] INFO  com.automation.core.BaseTest - Screenshot captured: Desktop_View
+2025-07-16 20:41:25.806 [main] INFO  com.automation.core.BaseTest - PASS: Responsive design test completed
+2025-07-16 20:41:25.806 [main] INFO  com.automation.core.BaseTest - Test completed: Responsive design test
+2025-07-16 20:41:25.807 [main] INFO  com.automation.core.BaseTest - Test PASSED: testResponsiveDesign
+2025-07-16 20:41:25.891 [main] INFO  com.automation.core.DriverManager - WebDriver quit successfully
+2025-07-16 20:41:25.891 [main] INFO  com.automation.core.BaseTest - WebDriver quit successfully
+2025-07-16 20:41:25.892 [main] INFO  com.automation.core.BaseTest - Test teardown completed for: testResponsiveDesign
+2025-07-16 20:41:25.987 [main] INFO  com.automation.utils.ExtentManager - ExtentReports flushed successfully
+2025-07-16 20:41:25.988 [main] INFO  com.automation.core.BaseTest - ==== Test Suite Completed ====
+2025-07-16 20:41:25.988 [main] INFO  com.automation.core.BaseTest - Test report generated at: test-output/reports/AutomationReport_2025-07-16_20-41-10.html
+2025-07-16 20:45:11.641 [main] INFO  com.automation.listeners.TestListener - Test Started: testResponsiveDesign
+2025-07-16 20:45:11.643 [main] INFO  com.automation.core.BaseTest - Starting test: Test responsive design elements
+2025-07-16 20:45:11.644 [main] ERROR com.automation.listeners.TestListener - Test Failed: testResponsiveDesign - Driver must be set
+2025-07-16 20:45:31.073 [main] INFO  com.automation.listeners.TestListener - Test Started: testResponsiveDesign
+2025-07-16 20:45:31.075 [main] INFO  com.automation.core.BaseTest - Starting test: Test responsive design elements
+2025-07-16 20:45:31.076 [main] ERROR com.automation.listeners.TestListener - Test Failed: testResponsiveDesign - Driver must be set
+2025-07-16 20:46:45.439 [main] INFO  com.automation.listeners.TestListener - Test Started: testResponsiveDesign
+2025-07-16 20:46:45.441 [main] INFO  com.automation.core.BaseTest - Starting test: Test responsive design elements
+2025-07-16 20:46:45.442 [main] ERROR com.automation.listeners.TestListener - Test Failed: testResponsiveDesign - Driver must be set
