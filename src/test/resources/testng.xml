@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Selenium Test Suite" verbose="1" parallel="tests" thread-count="2">
+    
+    <parameter name="browser" value="chrome"/>
+    <parameter name="headless" value="false"/>
+    <parameter name="implicit.wait" value="10"/>
+    <parameter name="page.load.timeout" value="30"/>
+    
+    <listeners>
+        <listener class-name="io.qameta.allure.testng.AllureTestNg"/>
+    </listeners>
+    
+    <test name="Google Tests" preserve-order="true">
+        <classes>
+            <class name="com.automation.tests.google.GoogleTest"/>
+        </classes>
+    </test>
+    
+    <test name="Amazon Tests" preserve-order="true">
+        <classes>
+            <class name="com.automation.tests.amazon.AmazonTest"/>
+        </classes>
+    </test>
+    
+</suite>
