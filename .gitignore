@@ -9,6 +9,7 @@ dependency-reduced-pom.xml
 buildNumber.properties
 .mvn/timing.properties
 
+
 # IDE
 .idea/
 *.iws
@@ -19,18 +20,24 @@ buildNumber.properties
 .project
 .classpath
 
+
 # Test Reports (optional - you can include these if you want)
 reports/
 allure-results/
 surefire-reports/
+.allure/
+test-output/
+
 
 # Logs
 logs/
 *.log
 
+
 # OS
 .DS_Store
 Thumbs.db
+
 
 # Other
 *.tmp
