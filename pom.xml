@@ -153,24 +153,27 @@
 
             <!-- Allure Maven Plugin -->
             <plugin>
-                <groupId>io.qameta.allure</groupId>
-                <artifactId>allure-maven</artifactId>
-                <version>2.13.0</version>
-                <configuration>
-                    <reportVersion>${allure.version}</reportVersion>
-                    <resultsDirectory>${project.build.directory}/allure-results</resultsDirectory>
-                    <reportDirectory>${project.build.directory}/allure-report</reportDirectory>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>allure-report</id>
-                        <phase>test</phase>
-                        <goals>
-                            <goal>report</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
+			    <groupId>io.qameta.allure</groupId>
+			    <artifactId>allure-maven</artifactId>
+			    <version>2.13.0</version>
+			    <configuration>
+			        <reportVersion>${allure.version}</reportVersion>
+			        <resultsDirectory>${project.build.directory}/allure-results</resultsDirectory>
+			        <reportDirectory>${project.build.directory}/allure-report</reportDirectory>
+			        <!-- Additional configuration for better reports -->
+			        <installDirectory>${project.build.directory}/allure-install</installDirectory>
+			        <propertiesFilePath>src/test/resources/allure.properties</propertiesFilePath>
+			    </configuration>
+			    <executions>
+			        <execution>
+			            <id>allure-report</id>
+			            <phase>test</phase>
+			            <goals>
+			                <goal>report</goal>
+			            </goals>
+			        </execution>
+			    </executions>
+			</plugin>
         </plugins>
     </build>
 </project>
