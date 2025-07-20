@@ -134,17 +134,17 @@ public class BaseTest {
         }
     }
     
-    protected void navigateTo(String url) {
-        logger.info("Navigating to URL: {}", url);
-        driver.get(url);
-        logger.info("Successfully navigated to: {}", url);
-    }
-    
-    protected String getCurrentUrl() {
-        return driver.getCurrentUrl();
-    }
-    
-    protected String getPageTitle() {
-        return driver.getTitle();
-    }
+//    protected void navigateTo(String url) {
+//        logger.info("Navigating to URL: {}", url);
+//        driver.get(url);
+//        logger.info("Successfully navigated to: {}", url);
+//    }
+//    
+//    protected String getCurrentUrl() {
+//        return driver.getCurrentUrl();
+//    }
+//    
+//    protected String getPageTitle() {
+//        return driver.getTitle();
+//    }
 }

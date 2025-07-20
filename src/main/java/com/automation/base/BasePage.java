@@ -196,4 +196,22 @@ public abstract class BasePage {
             throw new RuntimeException("Failed to execute JavaScript", e);
         }
     }
+    
+    @Step("Navigate to: {url}")
+    protected void navigateTo(String url) {
+        logger.info("Navigating to URL: {}", url);
+        driver.get(url);
+        logger.info("Successfully navigated to: {}", url);
+    }
+    
+    @Step("Get current url")
+    protected String getCurrentUrl() {
+        return driver.getCurrentUrl();
+    }
+    
+    @Step("Get page title")
+    protected String getPageTitle() {
+        return driver.getTitle();
+    }
+    
 }
