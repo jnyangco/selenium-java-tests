@@ -21,16 +21,30 @@ import java.time.Duration;
 public class BaseTest {
     
     private static final Logger logger = LoggerFactory.getLogger(BaseTest.class);
+    
+    // ThreadLocal for parallel safety
+    private static final ThreadLocal<WebDriver> driverThreadLocal = new ThreadLocal<>();
+    
+    // Keep this for backward compatibility
     protected WebDriver driver;
     
-    // Configuration
+    // Configuration with proper defaults
     private String browser = System.getProperty("browser", "chrome");
     private boolean headless = Boolean.parseBoolean(System.getProperty("headless", "false"));
     private int implicitWait = Integer.parseInt(System.getProperty("implicit.wait", "10"));
     private int pageLoadTimeout = Integer.parseInt(System.getProperty("page.load.timeout", "30"));
     
     @BeforeMethod
-    public void setUp() {
+    @Parameters({"browser"})
+    public void setUp(@Optional("chrome") String browserParam) {
+        // FIXED: Proper handling of browser parameter
+        if (browserParam != null && !browserParam.trim().isEmpty()) {
+            this.browser = browserParam.trim();
+        } else {
+            // Fallback to system property or default
+            this.browser = System.getProperty("browser", "chrome");
+        }
+        
         logger.info("Setting up WebDriver for browser: {}", browser);
         initializeDriver();
         configureDriver();
@@ -51,11 +65,18 @@ public class BaseTest {
         if (driver != null) {
             logger.info("Closing WebDriver");
             driver.quit();
+            driverThreadLocal.remove(); // Clean up ThreadLocal
         }
     }
     
     private void initializeDriver() {
-        switch (browser.toLowerCase()) {
+        // FIXED: Added null/empty check and better error message
+        if (browser == null || browser.trim().isEmpty()) {
+            browser = "chrome"; // Default fallback
+            logger.warn("Browser parameter was null or empty, defaulting to Chrome");
+        }
+        
+        switch (browser.toLowerCase().trim()) {
             case "chrome":
                 WebDriverManager.chromedriver().setup();
                 ChromeOptions chromeOptions = new ChromeOptions();
@@ -88,8 +109,12 @@ public class BaseTest {
                 break;
                 
             default:
-                throw new IllegalArgumentException("Unsupported browser: " + browser);
+                logger.error("Unsupported browser: '{}'. Supported browsers: chrome, firefox, edge", browser);
+                throw new IllegalArgumentException("Unsupported browser: '" + browser + "'. Supported browsers: chrome, firefox, edge");
         }
+        
+        // Store in ThreadLocal for parallel safety
+        driverThreadLocal.set(driver);
     }
     
     private void configureDriver() {

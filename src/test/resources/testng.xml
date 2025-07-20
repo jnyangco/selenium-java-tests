@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Selenium Test Suite" verbose="1" parallel="tests" thread-count="2">
+<suite name="Selenium Test Suite" verbose="1" parallel="methods" thread-count="3">
     
+    <!-- Global parameters -->
     <parameter name="browser" value="chrome"/>
     <parameter name="headless" value="false"/>
     <parameter name="implicit.wait" value="10"/>
@@ -11,14 +12,13 @@
         <listener class-name="io.qameta.allure.testng.AllureTestNg"/>
     </listeners>
     
-    <test name="Google Tests" preserve-order="true">
+    <!-- Single test block with parameters at test level too -->
+    <test name="All Tests">
+        <!-- Test level parameters (override global if needed) -->
+        <parameter name="browser" value="chrome"/>
+        
         <classes>
             <class name="com.automation.tests.google.GoogleTest"/>
-        </classes>
-    </test>
-    
-    <test name="Amazon Tests" preserve-order="true">
-        <classes>
             <class name="com.automation.tests.amazon.AmazonTest"/>
         </classes>
     </test>
