@@ -11,13 +11,6 @@ import org.slf4j.LoggerFactory;
 import java.time.Duration;
 import java.util.List;
 
-//SOLUTION 1: Static imports for simplified logging (RECOMMENDED)
-//import static com.automation.utils.logPass;
-//import static com.automation.utils.logFail;
-//import static com.automation.utils.logInfo;
-//import static com.automation.utils.logWarning;
-//import static com.automation.utils.logSkip;
-
 public abstract class BasePage {
     
     protected WebDriver driver;
@@ -26,12 +19,14 @@ public abstract class BasePage {
     private static final int DEFAULT_TIMEOUT = 10;
     
     public BasePage(WebDriver driver) {
+        if (driver == null) {
+            throw new IllegalArgumentException("WebDriver cannot be null");
+        }
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(DEFAULT_TIMEOUT));
-        logger.info("Initialized page object: {}", this.getClass().getSimpleName());
+        logger.info("Initialized page object: {} on thread: {}", this.getClass().getSimpleName(), Thread.currentThread().getName());
         logInfo("Initialized page object: " + this.getClass().getSimpleName());
     }
-    
     
     // =======================================================
     // SOLUTION 2: Add protected logging methods to BasePage
@@ -57,18 +52,26 @@ public abstract class BasePage {
         ExtentManager.logSkip(message);
     }
     
-    
-    
-    
-    
     // =======================================================
     // Helper methods to find elements
     protected WebElement findElement(By locator) {
-        return driver.findElement(locator);
+        try {
+            return driver.findElement(locator);
+        } catch (Exception e) {
+            logger.error("Failed to find element {}: {}", locator, e.getMessage());
+            logFail("Failed to find element " + locator + ": " + e.getMessage());
+            throw e;
+        }
     }
     
     protected List<WebElement> findElements(By locator) {
-        return driver.findElements(locator);
+        try {
+            return driver.findElements(locator);
+        } catch (Exception e) {
+            logger.error("Failed to find elements {}: {}", locator, e.getMessage());
+            logFail("Failed to find elements " + locator + ": " + e.getMessage());
+            throw e;
+        }
     }
     
     protected void click(By locator) {
@@ -250,17 +253,111 @@ public abstract class BasePage {
     protected void navigateTo(String url) {
         logger.info("Navigating to URL: {}", url);
         logInfo("Navigating to URL: " + url);
-        driver.get(url);
-        logger.info("Successfully navigated to: {}", url);
-        logPass("Successfully navigated to: " + url);
+        try {
+            driver.get(url);
+            logger.info("Successfully navigated to: {}", url);
+            logPass("Successfully navigated to: " + url);
+        } catch (Exception e) {
+            logger.error("Failed to navigate to URL: {}", url, e);
+            logFail("Failed to navigate to URL: " + url + " - " + e.getMessage());
+            throw new RuntimeException("Failed to navigate to URL", e);
+        }
     }
     
     // Make these methods public so they can be accessed from test classes
     public String getCurrentUrl() {
-        return driver.getCurrentUrl();
+        try {
+            return driver.getCurrentUrl();
+        } catch (Exception e) {
+            logger.error("Failed to get current URL: {}", e.getMessage());
+            logFail("Failed to get current URL: " + e.getMessage());
+            return "";
+        }
     }
     
     public String getPageTitle() {
-        return driver.getTitle();
+        try {
+            return driver.getTitle();
+        } catch (Exception e) {
+            logger.error("Failed to get page title: {}", e.getMessage());
+            logFail("Failed to get page title: " + e.getMessage());
+            return "";
+        }
+    }
+    
+    // Additional utility methods for better error handling
+    protected boolean isElementPresent(By locator) {
+        try {
+            findElement(locator);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+    
+    protected void waitForPageToLoad() {
+        try {
+            wait.until(driver -> ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete"));
+            logInfo("Page loaded completely");
+        } catch (Exception e) {
+            logger.warn("Page load wait timeout: {}", e.getMessage());
+            logWarning("Page load wait timeout: " + e.getMessage());
+        }
+    }
+    
+    // Additional wait methods for better stability
+    protected void waitForElementToDisappear(By locator) {
+        try {
+            wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
+            logInfo("Element disappeared: " + locator);
+        } catch (TimeoutException e) {
+            logger.warn("Element did not disappear within timeout: {}", locator);
+            logWarning("Element did not disappear within timeout: " + locator);
+        }
+    }
+    
+    protected void waitForTextToBePresentInElement(By locator, String text) {
+        try {
+            wait.until(ExpectedConditions.textToBePresentInElementLocated(locator, text));
+            logInfo("Text '" + text + "' found in element: " + locator);
+        } catch (TimeoutException e) {
+            logger.error("Text '{}' not found in element {} within timeout", text, locator);
+            logFail("Text '" + text + "' not found in element " + locator + " within timeout");
+            throw new RuntimeException("Text not found within timeout", e);
+        }
+    }
+    
+    // Refresh and navigation utilities
+    protected void refreshPage() {
+        try {
+            driver.navigate().refresh();
+            logInfo("Page refreshed successfully");
+        } catch (Exception e) {
+            logger.error("Failed to refresh page: {}", e.getMessage());
+            logFail("Failed to refresh page: " + e.getMessage());
+            throw new RuntimeException("Failed to refresh page", e);
+        }
+    }
+    
+    protected void navigateBack() {
+        try {
+            driver.navigate().back();
+            logInfo("Navigated back successfully");
+        } catch (Exception e) {
+            logger.error("Failed to navigate back: {}", e.getMessage());
+            logFail("Failed to navigate back: " + e.getMessage());
+            throw new RuntimeException("Failed to navigate back", e);
+        }
+    }
+    
+    protected void navigateForward() {
+        try {
+            driver.navigate().forward();
+            logInfo("Navigated forward successfully");
+        } catch (Exception e) {
+            logger.error("Failed to navigate forward: {}", e.getMessage());
+            logFail("Failed to navigate forward: " + e.getMessage());
+            throw new RuntimeException("Failed to navigate forward", e);
+        }
     }
 }

@@ -1,24 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
     
-    <!-- Console Appender -->
+    <!-- Console Appender with Thread Info -->
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
             <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
         </encoder>
     </appender>
     
-    <!-- File Appender -->
-    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
-        <file>logs/selenium-tests.log</file>
-        <encoder>
-            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
-        </encoder>
-    </appender>
-    
-    <!-- Rolling File Appender -->
+    <!-- Rolling File Appender with Thread Info -->
     <appender name="ROLLING_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>logs/selenium-tests-rolling.log</file>
+        <file>logs/selenium-tests-parallel.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
             <fileNamePattern>logs/selenium-tests-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <maxFileSize>10MB</maxFileSize>
@@ -30,17 +22,36 @@
         </encoder>
     </appender>
     
+    <!-- Thread-specific File Appender -->
+    <appender name="THREAD_FILE" class="ch.qos.logback.classic.sift.SiftingAppender">
+        <discriminator>
+            <key>thread</key>
+            <defaultValue>main</defaultValue>
+        </discriminator>
+        <sift>
+            <appender name="FILE-${thread}" class="ch.qos.logback.core.FileAppender">
+                <file>logs/thread-${thread}.log</file>
+                <encoder>
+                    <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+                </encoder>
+            </appender>
+        </sift>
+    </appender>
+    
     <!-- Selenium WebDriver Logger (reduce noise) -->
     <logger name="org.openqa.selenium" level="WARN"/>
     <logger name="io.github.bonigarcia.wdm" level="INFO"/>
     
-    <!-- Application Loggers -->
-    <logger name="com.automation" level="INFO"/>
+    <!-- Application Loggers with DEBUG for parallel debugging -->
+    <logger name="com.automation.base" level="DEBUG"/>
+    <logger name="com.automation.utils" level="DEBUG"/>
+    <logger name="com.automation.tests" level="INFO"/>
     
     <!-- Root Logger -->
     <root level="INFO">
         <appender-ref ref="CONSOLE"/>
         <appender-ref ref="ROLLING_FILE"/>
+        <appender-ref ref="THREAD_FILE"/>
     </root>
     
 </configuration>

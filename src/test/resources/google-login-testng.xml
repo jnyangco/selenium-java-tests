@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Google Login Test Suite" verbose="1" parallel="methods" thread-count="3">
+    
+    <!-- Global parameters -->
+    <parameter name="browser" value="chrome"/>
+    <parameter name="headless" value="false"/>
+    
+    <listeners>
+        <listener class-name="com.automation.listeners.TestListener"/>
+    </listeners>
+    
+    <!-- Google Login Tests Only -->
+    <test name="Google Login Tests">
+        <parameter name="browser" value="chrome"/>
+        <parameter name="headless" value="false"/>
+        <classes>
+            <class name="com.automation.tests.google.GoogleLoginTest"/>
+        </classes>
+    </test>
+    
+</suite>

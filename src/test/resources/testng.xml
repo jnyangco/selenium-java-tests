@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Selenium Test Suite" verbose="1" parallel="methods" thread-count="3">
     
-    <!-- Global parameters -->
+    <!-- Global parameters - FIXED: Removed data-provider-thread-count and added proper parameters -->
     <parameter name="browser" value="chrome"/>
     <parameter name="headless" value="false"/>
     <parameter name="implicit.wait" value="10"/>
@@ -13,8 +13,10 @@
     </listeners>
     
     <!-- Google Tests -->
-    <test name="Google Tests">
+    <test name="Google Tests" parallel="methods" thread-count="2">
+        <!-- FIXED: Explicit parameter definition for this test -->
         <parameter name="browser" value="chrome"/>
+        <parameter name="headless" value="false"/>
         <classes>
             <class name="com.automation.tests.google.GoogleSearchTest"/>
             <class name="com.automation.tests.google.GoogleLoginTest"/>
@@ -22,8 +24,10 @@
     </test>
     
     <!-- Amazon Tests -->
-    <test name="Amazon Tests">
+    <test name="Amazon Tests" parallel="methods" thread-count="2">
+        <!-- FIXED: Explicit parameter definition for this test -->
         <parameter name="browser" value="chrome"/>
+        <parameter name="headless" value="false"/>
         <classes>
             <class name="com.automation.tests.amazon.AmazonLoginTest"/>
             <class name="com.automation.tests.amazon.AmazonOrderTest"/>

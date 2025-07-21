@@ -15,41 +15,55 @@ import java.time.format.DateTimeFormatter;
 public class ExtentManager {
     
     private static final Logger logger = LoggerFactory.getLogger(ExtentManager.class);
-    private static ExtentReports extent;
+    private static volatile ExtentReports extent; // FIXED: Added volatile for thread safety
     private static final ThreadLocal<ExtentTest> test = new ThreadLocal<>();
     private static final String REPORT_PATH = "reports/extent-reports/";
+    private static final Object lock = new Object(); // FIXED: Added synchronization lock
     
-    public static synchronized ExtentReports getInstance() {
+    public static ExtentReports getInstance() {
         if (extent == null) {
-            String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm-ss"));
-            String reportFileName = "Test-Report-" + timestamp + ".html";
-            String reportPath = REPORT_PATH + reportFileName;
-            
-            // Create reports directory if it doesn't exist
-            File reportDir = new File(REPORT_PATH);
-            if (!reportDir.exists()) {
-                reportDir.mkdirs();
+            synchronized (lock) { // FIXED: Double-checked locking pattern
+                if (extent == null) {
+                    initializeExtentReports();
+                }
             }
-            
-            ExtentSparkReporter sparkReporter = new ExtentSparkReporter(reportPath);
-            configureSparkReporter(sparkReporter);
-            
-            extent = new ExtentReports();
-            extent.attachReporter(sparkReporter);
-            extent.setSystemInfo("OS", System.getProperty("os.name"));
-            extent.setSystemInfo("Java Version", System.getProperty("java.version"));
-            extent.setSystemInfo("Selenium Version", "4.26.0");
-            extent.setSystemInfo("TestNG Version", "7.10.2");
-            
-            logger.info("ExtentReports initialized. Report will be saved at: {}", reportPath);
         }
         return extent;
+    }
+    
+    private static void initializeExtentReports() {
+        String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm-ss"));
+        String reportFileName = "Test-Report-" + timestamp + ".html";
+        String reportPath = REPORT_PATH + reportFileName;
+        
+        // Create reports directory if it doesn't exist
+        File reportDir = new File(REPORT_PATH);
+        if (!reportDir.exists()) {
+            boolean created = reportDir.mkdirs();
+            if (!created) {
+                logger.warn("Failed to create report directory: {}", REPORT_PATH);
+            }
+        }
+        
+        ExtentSparkReporter sparkReporter = new ExtentSparkReporter(reportPath);
+        configureSparkReporter(sparkReporter);
+        
+        extent = new ExtentReports();
+        extent.attachReporter(sparkReporter);
+        extent.setSystemInfo("OS", System.getProperty("os.name"));
+        extent.setSystemInfo("Java Version", System.getProperty("java.version"));
+        extent.setSystemInfo("Selenium Version", "4.26.0");
+        extent.setSystemInfo("TestNG Version", "7.10.2");
+        extent.setSystemInfo("Browser", System.getProperty("browser", "chrome"));
+        extent.setSystemInfo("Execution Mode", "Parallel");
+        
+        logger.info("ExtentReports initialized. Report will be saved at: {}", reportPath);
     }
     
     private static void configureSparkReporter(ExtentSparkReporter sparkReporter) {
         sparkReporter.config().setTheme(Theme.STANDARD);
         sparkReporter.config().setDocumentTitle("Selenium Test Automation Report");
-        sparkReporter.config().setReportName("Test Execution Report");
+        sparkReporter.config().setReportName("Test Execution Report - Parallel Execution");
         sparkReporter.config().setTimeStampFormat("EEEE, MMMM dd, yyyy, hh:mm a '('zzz')'");
         sparkReporter.config().setEncoding("utf-8");
     }
@@ -57,7 +71,7 @@ public class ExtentManager {
     public static synchronized ExtentTest createTest(String testName, String description) {
         ExtentTest extentTest = getInstance().createTest(testName, description);
         test.set(extentTest);
-        logger.info("Created test: {} - {}", testName, description);
+        logger.info("Created test: {} - {} on thread: {}", testName, description, Thread.currentThread().getName());
         return extentTest;
     }
     
@@ -65,12 +79,19 @@ public class ExtentManager {
         return createTest(testName, "");
     }
     
-    public static synchronized ExtentTest getTest() {
-        return test.get();
+    public static ExtentTest getTest() {
+        ExtentTest currentTest = test.get();
+        if (currentTest == null) {
+            logger.warn("No ExtentTest found for current thread: {}", Thread.currentThread().getName());
+            // Create a default test if none exists
+            return createTest("Default Test - " + Thread.currentThread().getName());
+        }
+        return currentTest;
     }
     
-    public static synchronized void removeTest() {
+    public static void removeTest() {
         test.remove();
+        logger.debug("Removed test from thread: {}", Thread.currentThread().getName());
     }
     
     public static synchronized void flush() {
@@ -80,51 +101,77 @@ public class ExtentManager {
         }
     }
     
-    
-    
     // ===========================================================
-    // Utility methods for logging
+    // Utility methods for logging - FIXED thread safety
     public static void logPass(String message) {
-        if (getTest() != null) {
-            getTest().log(Status.PASS, message);
+        ExtentTest currentTest = getTest();
+        if (currentTest != null) {
+            synchronized (currentTest) {
+                currentTest.log(Status.PASS, message);
+            }
             logger.info("✅ PASS: {}", message);
+        } else {
+            logger.warn("Cannot log PASS - no test context available: {}", message);
         }
     }
     
     public static void logFail(String message) {
-        if (getTest() != null) {
-            getTest().log(Status.FAIL, message);
+        ExtentTest currentTest = getTest();
+        if (currentTest != null) {
+            synchronized (currentTest) {
+                currentTest.log(Status.FAIL, message);
+            }
             logger.error("❌ FAIL: {}", message);
+        } else {
+            logger.warn("Cannot log FAIL - no test context available: {}", message);
         }
     }
     
     public static void logInfo(String message) {
-        if (getTest() != null) {
-            getTest().log(Status.INFO, message);
+        ExtentTest currentTest = getTest();
+        if (currentTest != null) {
+            synchronized (currentTest) {
+                currentTest.log(Status.INFO, message);
+            }
             logger.info("ℹ️ INFO: {}", message);
+        } else {
+            logger.warn("Cannot log INFO - no test context available: {}", message);
         }
     }
     
     public static void logWarning(String message) {
-        if (getTest() != null) {
-            getTest().log(Status.WARNING, message);
+        ExtentTest currentTest = getTest();
+        if (currentTest != null) {
+            synchronized (currentTest) {
+                currentTest.log(Status.WARNING, message);
+            }
             logger.warn("⚠️ WARNING: {}", message);
+        } else {
+            logger.warn("Cannot log WARNING - no test context available: {}", message);
         }
     }
     
     public static void logSkip(String message) {
-        if (getTest() != null) {
-            getTest().log(Status.SKIP, message);
+        ExtentTest currentTest = getTest();
+        if (currentTest != null) {
+            synchronized (currentTest) {
+                currentTest.log(Status.SKIP, message);
+            }
             logger.warn("⏭️ SKIP: {}", message);
-            
+        } else {
+            logger.warn("Cannot log SKIP - no test context available: {}", message);
         }
     }
     // ===========================================================
     
-    
     public static void addScreenshot(String base64Screenshot, String description) {
-        if (getTest() != null) {
-            getTest().addScreenCaptureFromBase64String(base64Screenshot, description);
+        ExtentTest currentTest = getTest();
+        if (currentTest != null) {
+            synchronized (currentTest) {
+                currentTest.addScreenCaptureFromBase64String(base64Screenshot, description);
+            }
+        } else {
+            logger.warn("Cannot add screenshot - no test context available");
         }
     }
 }

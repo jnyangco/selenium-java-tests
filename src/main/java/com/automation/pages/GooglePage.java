@@ -47,6 +47,12 @@ public class GooglePage extends BasePage {
         driver.get("https://www.google.com");
         waitForPageTitle("Google");
         logPass("Successfully navigated to Google homepage"); // ✅ Simplified!
+        try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
         return this;
     }
     
