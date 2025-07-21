@@ -16,8 +16,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <selenium.version>4.26.0</selenium.version>
         <testng.version>7.10.2</testng.version>
-        <allure.version>2.29.0</allure.version>
-        <aspectj.version>1.9.22.1</aspectj.version>
+        <extentreports.version>5.1.2</extentreports.version>
         <webdrivermanager.version>5.9.2</webdrivermanager.version>
         <slf4j.version>2.0.16</slf4j.version>
         <logback.version>1.5.12</logback.version>
@@ -45,25 +44,11 @@
             <version>${testng.version}</version>
         </dependency>
 
-        <!-- Allure TestNG -->
+        <!-- ExtentReports -->
         <dependency>
-            <groupId>io.qameta.allure</groupId>
-            <artifactId>allure-testng</artifactId>
-            <version>${allure.version}</version>
-        </dependency>
-
-        <!-- Allure Attachments -->
-        <dependency>
-            <groupId>io.qameta.allure</groupId>
-            <artifactId>allure-attachments</artifactId>
-            <version>${allure.version}</version>
-        </dependency>
-
-        <!-- AspectJ Weaver for Allure -->
-        <dependency>
-            <groupId>org.aspectj</groupId>
-            <artifactId>aspectjweaver</artifactId>
-            <version>${aspectj.version}</version>
+            <groupId>com.aventstack</groupId>
+            <artifactId>extentreports</artifactId>
+            <version>${extentreports.version}</version>
         </dependency>
 
         <!-- Logging -->
@@ -107,7 +92,7 @@
                 </configuration>
             </plugin>
 
-            <!-- Maven Surefire Plugin for running tests - SINGLE CONFIGURATION -->
+            <!-- Maven Surefire Plugin for running tests -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -116,12 +101,6 @@
                     <suiteXmlFiles>
                         <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
-                    
-                    <!-- Clean argLine without MaxPermSize -->
-                    <argLine>
-                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
-                        -Xmx2048m
-                    </argLine>
                     
                     <!-- Parallel execution settings -->
                     <parallel>methods</parallel>
@@ -136,13 +115,6 @@
                         <parallel.tests>true</parallel.tests>
                     </systemPropertyVariables>
                     
-                    <systemProperties>
-                        <property>
-                            <name>allure.results.directory</name>
-                            <value>${project.build.directory}/allure-results</value>
-                        </property>
-                    </systemProperties>
-                    
                     <!-- Test patterns -->
                     <includes>
                         <include>**/*Test.java</include>
@@ -150,30 +122,6 @@
                     </includes>
                 </configuration>
             </plugin>
-
-            <!-- Allure Maven Plugin -->
-            <plugin>
-			    <groupId>io.qameta.allure</groupId>
-			    <artifactId>allure-maven</artifactId>
-			    <version>2.13.0</version>
-			    <configuration>
-			        <reportVersion>${allure.version}</reportVersion>
-			        <resultsDirectory>${project.build.directory}/allure-results</resultsDirectory>
-			        <reportDirectory>${project.build.directory}/allure-report</reportDirectory>
-			        <!-- Additional configuration for better reports -->
-			        <installDirectory>${project.build.directory}/allure-install</installDirectory>
-			        <propertiesFilePath>src/test/resources/allure.properties</propertiesFilePath>
-			    </configuration>
-			    <executions>
-			        <execution>
-			            <id>allure-report</id>
-			            <phase>test</phase>
-			            <goals>
-			                <goal>report</goal>
-			            </goals>
-			        </execution>
-			    </executions>
-			</plugin>
         </plugins>
     </build>
 </project>

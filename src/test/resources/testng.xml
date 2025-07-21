@@ -9,17 +9,24 @@
     <parameter name="page.load.timeout" value="30"/>
     
     <listeners>
-        <listener class-name="io.qameta.allure.testng.AllureTestNg"/>
+        <listener class-name="com.automation.listeners.TestListener"/>
     </listeners>
     
-    <!-- Single test block with parameters at test level too -->
-    <test name="All Tests">
-        <!-- Test level parameters (override global if needed) -->
+    <!-- Google Tests -->
+    <test name="Google Tests">
         <parameter name="browser" value="chrome"/>
-        
         <classes>
-            <class name="com.automation.tests.google.GoogleTest"/>
-            <class name="com.automation.tests.amazon.AmazonTest"/>
+            <class name="com.automation.tests.google.GoogleSearchTest"/>
+            <class name="com.automation.tests.google.GoogleLoginTest"/>
+        </classes>
+    </test>
+    
+    <!-- Amazon Tests -->
+    <test name="Amazon Tests">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="com.automation.tests.amazon.AmazonLoginTest"/>
+            <class name="com.automation.tests.amazon.AmazonOrderTest"/>
         </classes>
     </test>
     
