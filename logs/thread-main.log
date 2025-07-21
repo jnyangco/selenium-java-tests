@@ -1,0 +1,74 @@
+2025-07-21 15:45:28.382 [main] INFO  com.automation.utils.ExtentManager - ExtentReports initialized. Report will be saved at: reports/extent-reports/Test-Report-2025-07-21_15-45-28.html
+2025-07-21 15:45:28.384 [main] WARN  com.automation.utils.ExtentManager - No ExtentTest found for current thread: main
+2025-07-21 15:45:28.385 [main] INFO  com.automation.utils.ExtentManager - Created test: Default Test - main -  on thread: main
+2025-07-21 15:45:28.385 [main] INFO  com.automation.utils.ExtentManager - ℹ️ INFO: Test Suite Started
+2025-07-21 15:45:28.395 [TestNG-test-Surefire test-3] INFO  com.automation.utils.ExtentManager - Created test: testValidLogin - Verify login flow with valid credentials on thread: TestNG-test-Surefire test-3
+2025-07-21 15:45:28.395 [TestNG-test-Surefire test-3] INFO  com.automation.base.BaseTest - Setting up WebDriver for browser: chrome on thread: TestNG-test-Surefire test-3
+2025-07-21 15:45:28.395 [TestNG-test-Surefire test-1] INFO  com.automation.utils.ExtentManager - Created test: testInvalidEmailLogin - Verify login flow with invalid email on thread: TestNG-test-Surefire test-1
+2025-07-21 15:45:28.395 [TestNG-test-Surefire test-1] INFO  com.automation.base.BaseTest - Setting up WebDriver for browser: chrome on thread: TestNG-test-Surefire test-1
+2025-07-21 15:45:28.395 [TestNG-test-Surefire test-2] INFO  com.automation.utils.ExtentManager - Created test: testSignInButtonVisibility - Verify Google Sign In button is visible and clickable on thread: TestNG-test-Surefire test-2
+2025-07-21 15:45:28.395 [TestNG-test-Surefire test-3] INFO  com.automation.utils.ExtentManager - ℹ️ INFO: Setting up WebDriver for browser: chrome on thread: TestNG-test-Surefire test-3
+2025-07-21 15:45:28.395 [TestNG-test-Surefire test-1] INFO  com.automation.utils.ExtentManager - ℹ️ INFO: Setting up WebDriver for browser: chrome on thread: TestNG-test-Surefire test-1
+2025-07-21 15:45:28.395 [TestNG-test-Surefire test-2] INFO  com.automation.base.BaseTest - Setting up WebDriver for browser: chrome on thread: TestNG-test-Surefire test-2
+2025-07-21 15:45:28.396 [TestNG-test-Surefire test-2] INFO  com.automation.utils.ExtentManager - ℹ️ INFO: Setting up WebDriver for browser: chrome on thread: TestNG-test-Surefire test-2
+2025-07-21 15:45:28.523 [TestNG-test-Surefire test-3] INFO  i.g.bonigarcia.wdm.WebDriverManager - Using chromedriver 138.0.7204.157 (resolved driver for Chrome 138)
+2025-07-21 15:45:28.523 [TestNG-test-Surefire test-1] INFO  i.g.bonigarcia.wdm.WebDriverManager - Using chromedriver 138.0.7204.157 (resolved driver for Chrome 138)
+2025-07-21 15:45:28.523 [TestNG-test-Surefire test-2] INFO  i.g.bonigarcia.wdm.WebDriverManager - Using chromedriver 138.0.7204.157 (resolved driver for Chrome 138)
+2025-07-21 15:45:28.533 [TestNG-test-Surefire test-3] INFO  i.g.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as /Users/jerome/.cache/selenium/chromedriver/mac-arm64/138.0.7204.157/chromedriver
+2025-07-21 15:45:28.533 [TestNG-test-Surefire test-2] INFO  i.g.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as /Users/jerome/.cache/selenium/chromedriver/mac-arm64/138.0.7204.157/chromedriver
+2025-07-21 15:45:28.533 [TestNG-test-Surefire test-1] INFO  i.g.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as /Users/jerome/.cache/selenium/chromedriver/mac-arm64/138.0.7204.157/chromedriver
+2025-07-21 15:45:29.347 [TestNG-test-Surefire test-2] INFO  com.automation.base.BaseTest - Driver initialized successfully for browser: chrome on thread: TestNG-test-Surefire test-2
+2025-07-21 15:45:29.363 [TestNG-test-Surefire test-2] INFO  com.automation.base.BaseTest - Driver configured successfully
+2025-07-21 15:45:29.363 [TestNG-test-Surefire test-2] INFO  com.automation.base.BaseTest - WebDriver setup completed successfully on thread: TestNG-test-Surefire test-2
+2025-07-21 15:45:29.363 [TestNG-test-Surefire test-2] INFO  com.automation.utils.ExtentManager - ✅ PASS: WebDriver setup completed successfully
+2025-07-21 15:45:29.364 [TestNG-test-Surefire test-1] INFO  com.automation.base.BaseTest - Driver initialized successfully for browser: chrome on thread: TestNG-test-Surefire test-1
+2025-07-21 15:45:29.365 [TestNG-test-Surefire test-2] INFO  com.automation.utils.ExtentManager - ℹ️ INFO: Starting Google Sign In button visibility test
+2025-07-21 15:45:29.369 [TestNG-test-Surefire test-2] INFO  com.automation.base.BasePage - Initialized page object: GooglePage on thread: TestNG-test-Surefire test-2
+2025-07-21 15:45:29.370 [TestNG-test-Surefire test-2] INFO  com.automation.utils.ExtentManager - ℹ️ INFO: Initialized page object: GooglePage
+2025-07-21 15:45:29.371 [TestNG-test-Surefire test-2] INFO  com.automation.utils.ExtentManager - ℹ️ INFO: Step 1: Navigate to Google homepage
+2025-07-21 15:45:29.371 [TestNG-test-Surefire test-2] INFO  com.automation.utils.ExtentManager - ℹ️ INFO: Navigating to Google homepage
+2025-07-21 15:45:29.377 [TestNG-test-Surefire test-3] INFO  com.automation.base.BaseTest - Driver initialized successfully for browser: chrome on thread: TestNG-test-Surefire test-3
+2025-07-21 15:45:29.390 [TestNG-test-Surefire test-1] INFO  com.automation.base.BaseTest - Driver configured successfully
+2025-07-21 15:45:29.390 [TestNG-test-Surefire test-1] INFO  com.automation.base.BaseTest - WebDriver setup completed successfully on thread: TestNG-test-Surefire test-1
+2025-07-21 15:45:29.391 [TestNG-test-Surefire test-1] INFO  com.automation.utils.ExtentManager - ✅ PASS: WebDriver setup completed successfully
+2025-07-21 15:45:29.391 [TestNG-test-Surefire test-1] INFO  com.automation.utils.ExtentManager - ℹ️ INFO: Starting Google invalid email login test
+2025-07-21 15:45:29.391 [TestNG-test-Surefire test-1] INFO  com.automation.base.BasePage - Initialized page object: GooglePage on thread: TestNG-test-Surefire test-1
+2025-07-21 15:45:29.391 [TestNG-test-Surefire test-1] INFO  com.automation.utils.ExtentManager - ℹ️ INFO: Initialized page object: GooglePage
+2025-07-21 15:45:29.392 [TestNG-test-Surefire test-1] INFO  com.automation.utils.ExtentManager - ℹ️ INFO: Step 1: Navigate to Google homepage
+2025-07-21 15:45:29.392 [TestNG-test-Surefire test-1] INFO  com.automation.utils.ExtentManager - ℹ️ INFO: Navigating to Google homepage
+2025-07-21 15:45:29.393 [TestNG-test-Surefire test-3] INFO  com.automation.base.BaseTest - Driver configured successfully
+2025-07-21 15:45:29.393 [TestNG-test-Surefire test-3] INFO  com.automation.base.BaseTest - WebDriver setup completed successfully on thread: TestNG-test-Surefire test-3
+2025-07-21 15:45:29.395 [TestNG-test-Surefire test-3] INFO  com.automation.utils.ExtentManager - ✅ PASS: WebDriver setup completed successfully
+2025-07-21 15:45:29.396 [TestNG-test-Surefire test-3] INFO  com.automation.utils.ExtentManager - ℹ️ INFO: Starting Google valid login test
+2025-07-21 15:45:29.397 [TestNG-test-Surefire test-3] INFO  com.automation.base.BasePage - Initialized page object: GooglePage on thread: TestNG-test-Surefire test-3
+2025-07-21 15:45:29.398 [TestNG-test-Surefire test-3] INFO  com.automation.utils.ExtentManager - ℹ️ INFO: Initialized page object: GooglePage
+2025-07-21 15:45:29.398 [TestNG-test-Surefire test-3] INFO  com.automation.utils.ExtentManager - ℹ️ INFO: Step 1: Navigate to Google homepage
+2025-07-21 15:45:29.398 [TestNG-test-Surefire test-3] INFO  com.automation.utils.ExtentManager - ℹ️ INFO: Navigating to Google homepage
+2025-07-21 15:45:30.148 [TestNG-test-Surefire test-1] INFO  com.automation.base.BasePage - Page title contains: Google
+2025-07-21 15:45:30.149 [TestNG-test-Surefire test-1] INFO  com.automation.utils.ExtentManager - ℹ️ INFO: Page title contains: Google
+2025-07-21 15:45:30.149 [TestNG-test-Surefire test-1] INFO  com.automation.utils.ExtentManager - ✅ PASS: Successfully navigated to Google homepage
+2025-07-21 15:45:30.153 [TestNG-test-Surefire test-2] INFO  com.automation.base.BasePage - Page title contains: Google
+2025-07-21 15:45:30.164 [TestNG-test-Surefire test-2] INFO  com.automation.utils.ExtentManager - ℹ️ INFO: Page title contains: Google
+2025-07-21 15:45:30.169 [TestNG-test-Surefire test-2] INFO  com.automation.utils.ExtentManager - ✅ PASS: Successfully navigated to Google homepage
+2025-07-21 15:45:30.172 [TestNG-test-Surefire test-3] INFO  com.automation.base.BasePage - Page title contains: Google
+2025-07-21 15:45:30.175 [TestNG-test-Surefire test-3] INFO  com.automation.utils.ExtentManager - ℹ️ INFO: Page title contains: Google
+2025-07-21 15:45:30.175 [TestNG-test-Surefire test-3] INFO  com.automation.utils.ExtentManager - ✅ PASS: Successfully navigated to Google homepage
+2025-07-21 15:45:32.159 [TestNG-test-Surefire test-1] INFO  com.automation.base.BaseTest - Test passed: testInvalidEmailLogin
+2025-07-21 15:45:32.161 [TestNG-test-Surefire test-1] INFO  com.automation.utils.ExtentManager - ✅ PASS: Test passed: testInvalidEmailLogin
+2025-07-21 15:45:32.161 [TestNG-test-Surefire test-1] INFO  com.automation.base.BaseTest - Closing WebDriver on thread: TestNG-test-Surefire test-1
+2025-07-21 15:45:32.161 [TestNG-test-Surefire test-1] INFO  com.automation.utils.ExtentManager - ℹ️ INFO: Closing WebDriver
+2025-07-21 15:45:32.180 [TestNG-test-Surefire test-3] INFO  com.automation.base.BaseTest - Test passed: testValidLogin
+2025-07-21 15:45:32.180 [TestNG-test-Surefire test-3] INFO  com.automation.utils.ExtentManager - ✅ PASS: Test passed: testValidLogin
+2025-07-21 15:45:32.180 [TestNG-test-Surefire test-3] INFO  com.automation.base.BaseTest - Closing WebDriver on thread: TestNG-test-Surefire test-3
+2025-07-21 15:45:32.180 [TestNG-test-Surefire test-3] INFO  com.automation.utils.ExtentManager - ℹ️ INFO: Closing WebDriver
+2025-07-21 15:45:32.184 [TestNG-test-Surefire test-2] ERROR com.automation.base.BaseTest - Test failed: testSignInButtonVisibility
+2025-07-21 15:45:32.185 [TestNG-test-Surefire test-2] ERROR com.automation.utils.ExtentManager - ❌ FAIL: Test failed: testSignInButtonVisibility
+2025-07-21 15:45:32.185 [TestNG-test-Surefire test-2] INFO  com.automation.base.BaseTest - Taking screenshot: Test Failed: testSignInButtonVisibility
+2025-07-21 15:45:32.251 [TestNG-test-Surefire test-1] DEBUG com.automation.utils.ExtentManager - Removed test from thread: TestNG-test-Surefire test-1
+2025-07-21 15:45:32.264 [TestNG-test-Surefire test-3] DEBUG com.automation.utils.ExtentManager - Removed test from thread: TestNG-test-Surefire test-3
+2025-07-21 15:45:32.351 [TestNG-test-Surefire test-2] ERROR com.automation.utils.ExtentManager - ❌ FAIL: Test failure reason: This is an error message expected [true] but found [false]
+2025-07-21 15:45:32.351 [TestNG-test-Surefire test-2] INFO  com.automation.base.BaseTest - Closing WebDriver on thread: TestNG-test-Surefire test-2
+2025-07-21 15:45:32.351 [TestNG-test-Surefire test-2] INFO  com.automation.utils.ExtentManager - ℹ️ INFO: Closing WebDriver
+2025-07-21 15:45:32.434 [TestNG-test-Surefire test-2] DEBUG com.automation.utils.ExtentManager - Removed test from thread: TestNG-test-Surefire test-2
+2025-07-21 15:45:32.450 [main] INFO  com.automation.utils.ExtentManager - ℹ️ INFO: Test Suite Completed
+2025-07-21 15:45:32.545 [main] INFO  com.automation.utils.ExtentManager - ExtentReports flushed successfully
