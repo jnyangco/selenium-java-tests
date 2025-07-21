@@ -22,6 +22,9 @@
         <logback.version>1.5.12</logback.version>
         <commons.io.version>2.18.0</commons.io.version>
         <jackson.version>2.18.1</jackson.version>
+        <!-- Default property values -->
+        <browser>chrome</browser>
+        <headless>false</headless>
     </properties>
 
     <dependencies>
@@ -73,7 +76,7 @@
             <version>${jackson.version}</version>
         </dependency>
 
-        <!-- Apache Commons for utilities - FIXED version compatibility -->
+        <!-- Apache Commons for utilities -->
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
@@ -103,46 +106,32 @@
                     <suiteXmlFiles>
                         <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
-                    
-                    <!-- FIXED: Parallel execution settings -->
+
+                    <!-- Parallel execution settings -->
                     <parallel>methods</parallel>
                     <threadCount>3</threadCount>
                     <forkCount>1</forkCount>
                     <reuseForks>true</reuseForks>
                     <useUnlimitedThreads>false</useUnlimitedThreads>
-                    
-                    <!-- FIXED: System properties with default values -->
+
+                    <!-- FIXED: System properties with proper handling -->
                     <systemPropertyVariables>
-                        <browser>chrome</browser>
-                        <headless>false</headless>
+                        <browser>${browser}</browser>
+                        <headless>${headless}</headless>
                         <parallel.tests>true</parallel.tests>
-                        <webdriver.chrome.driver></webdriver.chrome.driver>
-                        <webdriver.gecko.driver></webdriver.gecko.driver>
                     </systemPropertyVariables>
-                    
-                    <!-- Override system properties if provided -->
-                    <systemPropertyVariables>
-                        <property>
-                            <name>browser</name>
-                            <value>${browser}</value>
-                        </property>
-                        <property>
-                            <name>headless</name>
-                            <value>${headless}</value>
-                        </property>
-                    </systemPropertyVariables>
-                    
+
                     <!-- Test patterns -->
                     <includes>
                         <include>**/*Test.java</include>
                         <include>**/*Tests.java</include>
                     </includes>
-                    
-                    <!-- FIXED: Add test failure policies -->
+
+                    <!-- Test failure policies -->
                     <testFailureIgnore>false</testFailureIgnore>
                     <skipTests>false</skipTests>
-                    
-                    <!-- FIXED: JVM arguments for better parallel execution -->
+
+                    <!-- JVM arguments for better parallel execution -->
                     <argLine>
                         -Xmx2048m
                         -XX:+UseG1GC
@@ -151,8 +140,8 @@
                     </argLine>
                 </configuration>
             </plugin>
-            
-            <!-- FIXED: Add failsafe plugin for integration tests -->
+
+            <!-- Failsafe plugin for integration tests -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-failsafe-plugin</artifactId>
@@ -160,6 +149,10 @@
                 <configuration>
                     <parallel>methods</parallel>
                     <threadCount>3</threadCount>
+                    <systemPropertyVariables>
+                        <browser>${browser}</browser>
+                        <headless>${headless}</headless>
+                    </systemPropertyVariables>
                 </configuration>
             </plugin>
         </plugins>
