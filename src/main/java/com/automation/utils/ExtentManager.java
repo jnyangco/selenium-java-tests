@@ -84,7 +84,7 @@ public class ExtentManager {
         if (currentTest == null) {
             logger.warn("No ExtentTest found for current thread: {}", Thread.currentThread().getName());
             // Create a default test if none exists
-            return createTest("Default Test - " + Thread.currentThread().getName());
+            return createTest("Test Suite Run Status - " + Thread.currentThread().getName());
         }
         return currentTest;
     }

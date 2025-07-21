@@ -17,7 +17,7 @@ public class GoogleLoginTest extends BaseTest {
         logInfo("Step 1: Navigate to Google homepage");
         googlePage.navigateToGoogle();
         
-        Assert.assertTrue(false, "This is an error message");
+        Assert.fail("This is an error message");
         
 //        logInfo("Step 2: Verify homepage is loaded");
 //        Assert.assertTrue(googlePage.isLoaded(), "Google homepage should load successfully");

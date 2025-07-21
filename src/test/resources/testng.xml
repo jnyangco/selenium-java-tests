@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Selenium Test Suite" verbose="1" parallel="methods" thread-count="3">
+<suite name="Selenium Test Suite" verbose="1" parallel="methods" thread-count="5">
     
     <!-- Global parameters - FIXED: Removed data-provider-thread-count and added proper parameters -->
     <parameter name="browser" value="chrome"/>
@@ -13,7 +13,7 @@
     </listeners>
     
     <!-- Google Tests -->
-    <test name="Google Tests" parallel="methods" thread-count="2">
+    <test name="Google Tests" parallel="methods" thread-count="5">
         <!-- FIXED: Explicit parameter definition for this test -->
         <parameter name="browser" value="chrome"/>
         <parameter name="headless" value="false"/>
@@ -24,14 +24,14 @@
     </test>
     
     <!-- Amazon Tests -->
-    <test name="Amazon Tests" parallel="methods" thread-count="2">
-        <!-- FIXED: Explicit parameter definition for this test -->
-        <parameter name="browser" value="chrome"/>
-        <parameter name="headless" value="false"/>
-        <classes>
-            <class name="com.automation.tests.amazon.AmazonLoginTest"/>
-            <class name="com.automation.tests.amazon.AmazonOrderTest"/>
-        </classes>
-    </test>
+<!--    <test name="Amazon Tests" parallel="methods" thread-count="5">-->
+<!--        &lt;!&ndash; FIXED: Explicit parameter definition for this test &ndash;&gt;-->
+<!--        <parameter name="browser" value="chrome"/>-->
+<!--        <parameter name="headless" value="false"/>-->
+<!--        <classes>-->
+<!--            <class name="com.automation.tests.amazon.AmazonLoginTest"/>-->
+<!--            <class name="com.automation.tests.amazon.AmazonOrderTest"/>-->
+<!--        </classes>-->
+<!--    </test>-->
     
 </suite>

@@ -127,6 +127,10 @@
                         <include>**/*Tests.java</include>
                     </includes>
 
+                    <!-- FIXED: Enable better pattern matching -->
+                    <runOrder>alphabetical</runOrder>
+                    <trimStackTrace>false</trimStackTrace>
+
                     <!-- Test failure policies -->
                     <testFailureIgnore>false</testFailureIgnore>
                     <skipTests>false</skipTests>
